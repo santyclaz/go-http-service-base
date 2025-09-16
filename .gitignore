@@ -1,0 +1,11 @@
+# Service specific
+service
+.env*
+
+# IDE specific
+.vscode/
+*.code-workspace
+
+# System specific
+.DS_Store
+*.swp

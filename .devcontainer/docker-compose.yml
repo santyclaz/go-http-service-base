@@ -1,0 +1,15 @@
+services:
+  service:
+    build: .
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - "8080:8080" # webserver port
+    command: sleep infinity
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: example

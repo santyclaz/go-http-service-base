@@ -1,0 +1,49 @@
+// For devcontainer.json docs, see:
+// - https://aka.ms/devcontainer.json
+// Resources:
+// - https://containers.dev/guide/dockerfile
+// - https://github.com/devcontainers/images/tree/main/src/go
+{
+	"name": "go-example",
+
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "service",
+	"workspaceFolder": "/workspace",
+
+	// More info: https://containers.dev/features
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": "true"
+		}
+	},
+
+	// Configure tool-specific properties
+	"customizations": {
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"go.toolsManagement.checkForUpdates": "local",
+				"go.useLanguageServer": true,
+				"go.gopath": "/go"
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"golang.Go"
+			]
+		}
+	},
+
+	// List of ports inside the container to make available locally
+	"forwardPorts": [ 8080 ],
+
+	// Command to run after the container is created
+	"postCreateCommand": "go version",
+
+	// Set `remoteUser` to `root` to connect as root instead
+	// More info: https://aka.ms/dev-containers-non-root
+	"remoteUser": "vscode"
+}
