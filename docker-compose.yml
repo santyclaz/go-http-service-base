@@ -2,7 +2,7 @@ services:
   service:
     build: .
     volumes:
-      - ..:/workspace:cached
+      - .:/workspace:cached
     ports:
       - "8080:8080" # webserver port
     command: sleep infinity

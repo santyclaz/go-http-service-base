@@ -4,19 +4,18 @@ This project provides a simple example Go HTTP Service that can be used as a tem
 
 ## Running with Docker Compose
 
-1. Run `docker-compose up`
+1. Run `docker compose up`
    ```sh
-   cd .devcontainer
-   docker-compose up -d
+   docker compose up -d
    ```
 2. Start the Go webserver in `service` container
    ```sh
-   docker-compose exec service go run .
+   docker compose exec service go run .
    ```
 3. Access [http://localhost:8080/hello](http://localhost:8080/hello)
-4. To clean-up containers, run `docker-compose down`
+4. To clean-up containers, run `docker compose down`
    ```sh
-   docker-compose down
+   docker compose down
    ```
 
 ## Running with Dev Containers in VS Code

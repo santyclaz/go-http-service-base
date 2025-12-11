@@ -6,7 +6,7 @@
 {
 	"name": "go-example",
 
-	"dockerComposeFile": "docker-compose.yml",
+	"dockerComposeFile": "../docker-compose.yml",
 	"service": "service",
 	"workspaceFolder": "/workspace",
 
