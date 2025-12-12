@@ -12,7 +12,7 @@ This project provides a simple example Go HTTP Service that can be used as a tem
    ```sh
    docker compose exec service go run .
    ```
-3. Access [http://localhost:8080/hello](http://localhost:8080/hello)
+3. Access [http://localhost:8080/health](http://localhost:8080/health)
 4. To clean-up containers, run `docker compose down`
    ```sh
    docker compose down
@@ -27,7 +27,7 @@ This project provides a simple example Go HTTP Service that can be used as a tem
    ```sh
    go run .
    ```
-5. Access [http://localhost:8080/hello](http://localhost:8080/hello)
+5. Access [http://localhost:8080/health](http://localhost:8080/health)
 
 # Resources
 
