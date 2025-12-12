@@ -2,7 +2,7 @@
 
 This project provides a simple example Go HTTP Service that can be used as a template
 
-## Running with Docker Compose
+# Running with Docker Compose
 
 1. Run `docker compose up`
    ```sh
@@ -18,7 +18,7 @@ This project provides a simple example Go HTTP Service that can be used as a tem
    docker compose down
    ```
 
-## Running with Dev Containers in VS Code
+# Running with Dev Containers in VS Code
 
 1. Make sure you have `Dev Containers` extension or equivalent installed along with `Docker`
 2. Open this folder in VS Code
@@ -29,7 +29,7 @@ This project provides a simple example Go HTTP Service that can be used as a tem
    ```
 5. Access [http://localhost:8080/hello](http://localhost:8080/hello)
 
-## Resources
+# Resources
 
 - [Ultimate Guide to Dev Containers](https://www.daytona.io/dotfiles/ultimate-guide-to-dev-containers)
 - [How I write HTTP services in Go](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)
