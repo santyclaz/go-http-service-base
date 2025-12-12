@@ -2,5 +2,4 @@ module go-example
 
 go 1.25
 
-require (
-)
+require github.com/google/uuid v1.6.0

@@ -5,6 +5,8 @@ import (
 	"net/http"
 )
 
+type Middleware func(http.Handler) http.Handler
+
 func newSessionMiddleware(logger *slog.Logger) func(h http.Handler) http.Handler {
 	return func(h http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

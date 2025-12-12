@@ -1,10 +1,14 @@
-package main
+package routes
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
+
+type Response struct {
+	Message string `json:"message"`
+}
 
 func encode[T any](
 	w http.ResponseWriter,

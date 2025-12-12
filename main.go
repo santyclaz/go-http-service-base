@@ -10,6 +10,8 @@ import (
 	"os/signal"
 	"sync"
 	"time"
+
+	"go-example/stores"
 )
 
 func run(ctx context.Context,
@@ -17,6 +19,7 @@ func run(ctx context.Context,
 	stdout io.Writer,
 	stderr io.Writer,
 ) error {
+	// allow
 	ctx, cancel := signal.NotifyContext(ctx, os.Interrupt)
 	defer cancel()
 
@@ -30,10 +33,18 @@ func run(ctx context.Context,
 		Level: config.LogLevel,
 	}))
 
+	loggingMiddleware := newLoggingMiddleware(logger)
+	sessionMiddleWare := newSessionMiddleware(logger)
+
+	pokemonStore := stores.NewInMemoryPokemonStore()
+
 	// create server
 	srv := NewServer(
 		logger,
 		config,
+		loggingMiddleware,
+		sessionMiddleWare,
+		pokemonStore,
 	)
 	httpServer := &http.Server{
 		Addr:    fmt.Sprintf(":%d", config.Port),
