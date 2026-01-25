@@ -6,7 +6,7 @@
 {
 	"name": "go-example",
 
-	"dockerComposeFile": "../docker-compose.yml",
+	"dockerComposeFile": "../compose.yml",
 	"service": "service",
 	"workspaceFolder": "/workspace",
 
@@ -36,9 +36,6 @@
 			]
 		}
 	},
-
-	// List of ports inside the container to make available locally
-	"forwardPorts": [ 8080 ],
 
 	// Command to run after the container is created
 	"postCreateCommand": "go version",

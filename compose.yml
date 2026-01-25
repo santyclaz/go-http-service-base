@@ -4,7 +4,7 @@ services:
     volumes:
       - .:/workspace:cached
     ports:
-      - "8080:8080" # webserver port
+      - "${PORT:-8080}:${PORT:-8080}" # webserver port
     command: sleep infinity
   mysql:
     image: mysql:8.0
