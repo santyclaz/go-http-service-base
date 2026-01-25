@@ -101,7 +101,7 @@ func lookupStrEnv(key string) (val string, found bool) {
 func lookupUintEnv(key string) (val uint, found bool) {
 	strVal, found := os.LookupEnv(key)
 
-	if parsedVal, err := strconv.ParseUint(strVal, 10, 32); err != nil {
+	if parsedVal, err := strconv.ParseUint(strVal, 10, 32); err == nil {
 		return uint(parsedVal), found
 	}
 
