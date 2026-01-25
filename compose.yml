@@ -5,6 +5,8 @@ services:
       - .:/workspace:cached
     ports:
       - "${PORT:-8080}:${PORT:-8080}" # webserver port
+    environment:
+      PORT: "${PORT:-8080}"
     command: sleep infinity
   mysql:
     image: mysql:8.0
