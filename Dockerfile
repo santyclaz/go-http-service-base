@@ -35,3 +35,31 @@ RUN curl -fsSL https://claude.ai/install.sh | bash -s ${CLAUDE_CODE_VERSION}
 
 # For persisting claude config
 RUN mkdir -p /home/$USERNAME/.claude
+
+#
+# [Stage] build
+# For building image
+#
+FROM golang:${GO_VERSION} AS build
+
+WORKDIR "/workspace"
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+# Build the static binary, explicitly setting CGO_ENABLED=0 for compatibility with minimal images like scratch or alpine
+RUN CGO_ENABLED=0 GOOS=linux go build -o go-service .
+
+#
+# [Stage] final image
+#
+FROM scratch AS final
+
+# Copy the compiled binary from the build stage
+COPY --from=build /workspace/go-service /go-service
+
+EXPOSE 8080
+
+# Set the entry point to run the application
+ENTRYPOINT ["/go-service"]
