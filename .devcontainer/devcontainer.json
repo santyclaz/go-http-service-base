@@ -20,7 +20,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": "true",
-			"username": "vscode",
+			"username": "eng-user",
 			"userUid": "1000",
 			"userGid": "1000",
 			"upgradePackages": "true"
@@ -58,5 +58,5 @@
 
 	// Set `remoteUser` to `root` to connect as root instead
 	// More info: https://aka.ms/dev-containers-non-root
-	"remoteUser": "vscode"
+	"remoteUser": "eng-user"
 }

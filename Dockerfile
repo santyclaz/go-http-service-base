@@ -6,7 +6,7 @@ ARG GO_VERSION=1.25
 #
 FROM golang:${GO_VERSION} AS dev
 
-ARG USERNAME=vscode
+ARG USERNAME=eng-user
 RUN adduser $USERNAME
 
 ARG TZ
