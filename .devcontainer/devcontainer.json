@@ -6,7 +6,13 @@
 {
 	"name": "go-example",
 
-	"dockerComposeFile": "../compose.yml",
+	"dockerComposeFile": [
+		"../compose.yml",
+
+		// Merge `compose.claude.yml` to include Claude Code
+		// Comment this out if you want to exclude
+		"./compose.claude.yml"
+	],
 	"service": "service",
 	"workspaceFolder": "/workspace",
 
@@ -35,6 +41,16 @@
 				"golang.Go"
 			]
 		}
+	},
+
+	"mounts": [
+		// Volume to preserve command history
+		"source=cmdhistory-${devcontainerId},target=/cmdhistory,type=volume"
+	],
+	"containerEnv": {
+		// Workaround to prevent needing to reauth on container rebuild
+		// https://github.com/anthropics/claude-code/issues/1736#issuecomment-3113994138
+		"CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
 	},
 
 	// Command to run after the container is created

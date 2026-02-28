@@ -1,12 +1,15 @@
 services:
   service:
-    build: .
+    build:
+      context: .
+      target: dev
     volumes:
       - .:/workspace:cached
     ports:
       - "${PORT:-8080}:${PORT:-8080}" # webserver port
     environment:
       PORT: "${PORT:-8080}"
+      TZ: "${TZ:-America/Los_Angeles}"
     command: sleep infinity
   mysql:
     image: mysql:8.0
